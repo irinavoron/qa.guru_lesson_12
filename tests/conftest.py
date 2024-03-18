@@ -6,12 +6,20 @@ from selene import Browser, Config, browser
 from utils import attach
 
 
+def pytest_addoption(parser):
+    parser.addoption(
+        '--browser_version',
+        default='120.0'
+    )
+
+
 @pytest.fixture(autouse=True)
 def browser_settings(request):
+    browser_version = request.config.getoption('--browser_version')
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
-        "browserVersion": "122.0",
+        "browserVersion": browser_version,
         "selenoid:options": {
             "enableVideo": True
         }
