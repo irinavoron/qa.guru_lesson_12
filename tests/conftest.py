@@ -5,6 +5,8 @@ from selene import Browser, Config, browser
 
 from utils import attach
 
+DEFAULT_BROWSER_VERSION = '120.0'
+
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -16,6 +18,7 @@ def pytest_addoption(parser):
 @pytest.fixture(autouse=True)
 def browser_settings(request):
     browser_version = request.config.getoption('--browser_version')
+    browser_version = browser_version if browser_version != '' else DEFAULT_BROWSER_VERSION
     options = Options()
     selenoid_capabilities = {
         "browserName": "chrome",
