@@ -1,5 +1,3 @@
-selene >= 2.0.0rc8
+selene >= 2.0.0rc9
 pytest >= 8.1.1
 allure-pytest >= 2.13.3
-selenium~=4.18.1
-python-dotenv~=1.0.1
