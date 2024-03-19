@@ -12,7 +12,6 @@ def add_logs(browser):
     allure.attach(log, 'browser_logs', AttachmentType.TEXT, '.log')
 
 
-# html-код страницы
 def add_html(browser):
     html = browser.driver.page_source
     allure.attach(html, 'page_source', AttachmentType.HTML, '.html')
